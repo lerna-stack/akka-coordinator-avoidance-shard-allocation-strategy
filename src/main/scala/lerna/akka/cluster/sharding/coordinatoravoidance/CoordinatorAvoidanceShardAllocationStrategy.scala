@@ -15,6 +15,9 @@ import scala.concurrent.duration.DurationInt
 
 object CoordinatorAvoidanceShardAllocationStrategy {
 
+  private val unused: String =
+    "This unused variable will generates a compiler warning."
+
   /** Settings of [[CoordinatorAvoidanceShardAllocationStrategy]]
     *
     * @param absoluteLimit
