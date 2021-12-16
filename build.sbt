@@ -17,7 +17,7 @@ ThisBuild / autoAPIMappings := true
 // Minimum Coverage
 ThisBuild / coverageFailOnMinimum := true
 ThisBuild / coverageMinimumStmtTotal := 80
-ThisBuild / coverageMinimumBranchTotal := 80
+ThisBuild / coverageMinimumBranchTotal := 99
 
 lazy val root =
   (project in file("."))
