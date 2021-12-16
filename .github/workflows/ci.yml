@@ -35,4 +35,11 @@ jobs:
         run: sbt clean compile Test/compile
 
       - name: Test
-        run: sbt test
+        run: sbt coverage test
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          check_name: Test Report (Java ${{ matrix.java }})
+          report_paths: 'target/**test-reports/TEST-*.xml'
