@@ -1333,7 +1333,7 @@ final class CoordinatorAvoidanceShardAllocationStrategySpec
 
       val settings =
         CoordinatorAvoidanceShardAllocationStrategy.Settings(system)
-      settings.absoluteLimit should ===(0)
+      settings.absoluteLimit should ===(1)
       settings.relativeLimit should ===(0.1)
       settings.oldestNodesExcluded should ===(1)
       settings.minCap should ===(1)
