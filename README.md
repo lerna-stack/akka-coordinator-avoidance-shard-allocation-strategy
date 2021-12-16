@@ -1,5 +1,8 @@
 # Coordinator Avoidance Shard Allocation Strategy
 
+[![CI](https://github.com/lerna-stack/akka-coordinator-avoidance-shard-allocation-strategy/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lerna-stack/akka-coordinator-avoidance-shard-allocation-strategy/actions/workflows/ci.yml?query=workflow%3ACI+branch%3Amain)
+
+
 ## Motivation
 We faced response time (latency) spikes during a rolling update in some specific situations with *Akka Cluster Sharding*.
 This challenge is because we lose the `ShardCoordinator` and `ShardHome` cache simultaneously.

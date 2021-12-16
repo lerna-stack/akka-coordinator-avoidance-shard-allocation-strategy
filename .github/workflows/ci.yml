@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, feature/** ]
+  pull_request:
+    branches: [ main, feature/** ]
+
+env:
+  SBT_OPTS: -Dlerna.enable.discipline
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test (Java ${{ matrix.java }})
+    strategy:
+      matrix:
+        java: [ '8', '11' ]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v2
+      - uses: coursier/cache-action@v6
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: ${{ matrix.java }}
+
+      - name: Check code format
+        run: sbt scalafmtSbtCheck scalafmtCheckAll
+
+      # Detect compile errors early
+      - name: Compile
+        run: sbt clean compile Test/compile
+
+      - name: Test
+        run: sbt coverage test
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          check_name: Test Report (Java ${{ matrix.java }})
+          report_paths: 'target/**test-reports/TEST-*.xml'
+
+      - name: Check minimum coverage
+        run: sbt coverageReport

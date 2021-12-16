@@ -6,10 +6,18 @@ ThisBuild / scalacOptions ++= Seq(
   "-feature",
   "-unchecked",
   "-Xlint",
-  "-Xfatal-warnings",
   "-Xsource:3"
 )
+ThisBuild / scalacOptions ++= sys.props
+  .get("lerna.enable.discipline")
+  .map(_ => "-Xfatal-warnings")
+  .toSeq
 ThisBuild / autoAPIMappings := true
+
+// Minimum Coverage
+ThisBuild / coverageFailOnMinimum := true
+ThisBuild / coverageMinimumStmtTotal := 80
+ThisBuild / coverageMinimumBranchTotal := 80
 
 lazy val root =
   (project in file("."))
