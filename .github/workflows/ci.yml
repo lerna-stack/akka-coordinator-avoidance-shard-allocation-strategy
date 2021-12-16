@@ -43,3 +43,6 @@ jobs:
         with:
           check_name: Test Report (Java ${{ matrix.java }})
           report_paths: 'target/**test-reports/TEST-*.xml'
+
+      - name: Check minimum coverage
+        run: sbt coverageReport

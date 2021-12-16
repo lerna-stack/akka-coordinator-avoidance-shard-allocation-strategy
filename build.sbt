@@ -14,6 +14,11 @@ ThisBuild / scalacOptions ++= sys.props
   .toSeq
 ThisBuild / autoAPIMappings := true
 
+// Minimum Coverage
+ThisBuild / coverageFailOnMinimum := true
+ThisBuild / coverageMinimumStmtTotal := 80
+ThisBuild / coverageMinimumBranchTotal := 80
+
 lazy val root =
   (project in file("."))
     .settings(
