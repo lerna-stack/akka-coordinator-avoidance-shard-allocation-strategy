@@ -18,12 +18,14 @@ You have to add a dependency into your project to use this library.
 Add the following lines to your `build.sbt` file:
 
 **Stable Release (Not Available)**  
+[![Maven Central](https://img.shields.io/maven-central/v/com.lerna-stack/akka-coordinator-avoidance-shard-allocation-strategy_2.13?color=%23005cb2&label=stable)](https://mvnrepository.com/artifact/com.lerna-stack/akka-coordinator-avoidance-shard-allocation-strategy)  
 Replace `"X.Y.Z"` with the actual version you want to use.
 ```scala
 libraryDependencies += "com.lerna-stack" %% "akka-coordinator-avoidance-shard-allocation-strategy" % "X.Y.Z"
 ```
 
-**Unstable Release (SNAPSHOT, Not Available)**  
+**Unstable Release (SNAPSHOT)**  
+[![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/com.lerna-stack/akka-coordinator-avoidance-shard-allocation-strategy_2.13?color=%237B1FA2&label=unstable&server=https%3A%2F%2Foss.sonatype.org)](https://oss.sonatype.org/index.html#nexus-search;gav~com.lerna-stack~akka-coordinator-avoidance-shard-allocation-strategy_*~~~)  
 Replace `"X.Y.Z"` with the actual version you want to use.
 ```scala
 // You have to refer to Sonatype if you use a snapshot version.
@@ -85,6 +87,12 @@ You can see all the notable changes in [CHANGELOG](CHANGELOG.md).
 ## For Contributors
 
 [CONTRIBUTING](CONTRIBUTING.md) might help us.
+
+
+## For Maintainers
+
+[RELEASING](RELEASING.md) describes how to release a new version.
+
 
 ## License
 
