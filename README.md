@@ -88,6 +88,12 @@ You can see all the notable changes in [CHANGELOG](CHANGELOG.md).
 
 [CONTRIBUTING](CONTRIBUTING.md) might help us.
 
+
+## For Maintainers
+
+[RELEASING](RELEASING.md) describes how to release a new version.
+
+
 ## License
 
 akka-coordinator-avoidance-shard-allocation-strategy is released under the terms of the [Apache License Version 2.0](./LICENSE).
