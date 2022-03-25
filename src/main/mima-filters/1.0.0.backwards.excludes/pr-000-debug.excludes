@@ -1,0 +1,2 @@
+# This is for debug (this problem cannot be excluded)
+ProblemFilters.exclude[DirectMissingMethodProblem]("lerna.akka.cluster.sharding.coordinatoravoidance.CoordinatorAvoidanceShardAllocationStrategy#Settings.apply")
