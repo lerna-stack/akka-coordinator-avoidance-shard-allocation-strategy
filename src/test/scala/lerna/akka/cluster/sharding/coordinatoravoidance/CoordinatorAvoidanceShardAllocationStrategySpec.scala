@@ -1353,7 +1353,10 @@ final class CoordinatorAvoidanceShardAllocationStrategySpec
           |""".stripMargin
       )
       val settings =
-        CoordinatorAvoidanceShardAllocationStrategy.Settings(config)
+        CoordinatorAvoidanceShardAllocationStrategy.Settings(
+          config,
+          breakingBinaryCompat = 0
+        )
       settings.absoluteLimit should ===(30)
       settings.relativeLimit should ===(0.2)
       settings.oldestNodesExcluded should ===(2)

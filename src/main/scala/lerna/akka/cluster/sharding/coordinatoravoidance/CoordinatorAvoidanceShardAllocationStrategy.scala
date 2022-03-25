@@ -86,7 +86,7 @@ object CoordinatorAvoidanceShardAllocationStrategy {
       * configuration
       * `lerna.akka.cluster.sharding.coordinator-avoidance-shard-allocation-strategy`
       */
-    def apply(config: Config): Settings = {
+    def apply(config: Config, breakingBinaryCompat: Int): Settings = {
       val absoluteLimit = config.getInt("rebalance-absolute-limit")
       val relativeLimit = config.getDouble("rebalance-relative-limit")
       val oldestNodesExcluded =
@@ -106,7 +106,7 @@ object CoordinatorAvoidanceShardAllocationStrategy {
         systemProvider.classicSystem.settings.config.getConfig(
           "lerna.akka.cluster.sharding.coordinator-avoidance-shard-allocation-strategy"
         )
-      Settings(config)
+      Settings(config, breakingBinaryCompat = 0)
     }
 
   }
