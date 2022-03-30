@@ -19,6 +19,14 @@ ThisBuild / coverageFailOnMinimum := true
 ThisBuild / coverageMinimumStmtTotal := 80
 ThisBuild / coverageMinimumBranchTotal := 80
 
+// MiMa
+ThisBuild / mimaPreviousArtifacts := {
+  previousStableVersion.value
+    .map(organization.value %% moduleName.value % _)
+    .toSet
+}
+ThisBuild / mimaReportSignatureProblems := true
+
 lazy val root =
   (project in file("."))
     .settings(
@@ -34,8 +42,14 @@ lazy val root =
 
 addCommandAlias(
   "ci",
-  Seq("clean", "scalafmtSbtCheck", "scalafmtCheckAll", "Test/compile", "test")
-    .mkString(";")
+  Seq(
+    "clean",
+    "scalafmtSbtCheck",
+    "scalafmtCheckAll",
+    "Test/compile",
+    "mimaReportBinaryIssues",
+    "test"
+  ).mkString(";")
 )
 
 addCommandAlias(

@@ -19,6 +19,12 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2
+        with:
+          # Fetch all history for all tags and branches.
+          # sbt-dynver detects the previous version by git tag.
+          # Mima uses the detected previous version to ensure binary compatibility.
+          fetch-depth: 0
+
       - uses: coursier/cache-action@v6
 
       - name: Set up JDK ${{ matrix.java }}
@@ -33,6 +39,9 @@ jobs:
       # Detect compile errors early
       - name: Compile
         run: sbt clean compile Test/compile
+
+      - name: Check binary compartibility
+        run: sbt mimaReportBinaryIssues
 
       - name: Test
         run: sbt coverage test
